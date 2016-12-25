@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     //Need to create an instance of the Random class for generating the numbers use ALT+ENTER shortcut to import
     Random rand;
 
+    //Need to create die to hold the value
+    int die1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
         rollResult.setText("Clicked!");
 
-        int num = rand.nextInt(6) + 1;
-        String randomValue = "Number generated: " + num;
-        Toast.makeText(getApplicationContext(), randomValue,Toast.LENGTH_SHORT).show();
+        //Roll dice
+        die1 = rand.nextInt(6)+1;
+        String msg = "You rolled a " + die1;
+
+        //Update the app to display the roll message
+        rollResult.setText(msg);
     }
 
     @Override
