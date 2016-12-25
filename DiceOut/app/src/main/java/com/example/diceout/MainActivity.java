@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,8 +29,13 @@ public class MainActivity extends AppCompatActivity {
     //Need to create an instance of the Random class for generating the numbers use ALT+ENTER shortcut to import
     Random rand;
 
-    //Need to create die to hold the value
+    //Need to create dice to hold the values
     int die1;
+    int die2;
+    int die3;
+
+    //ArrayList to hold all the dice values
+    ArrayList<Integer> dice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
         //initialize the random number generator
         rand = new Random();
 
+        //Create ArrayList Container for the Dice values
+        dice = new ArrayList<Integer>();
+
     }
 
     public void rollDice(View v){
@@ -65,8 +74,18 @@ public class MainActivity extends AppCompatActivity {
         rollResult.setText("Clicked!");
 
         //Roll dice
-        die1 = rand.nextInt(6)+1;
-        String msg = "You rolled a " + die1;
+        die1 = rand.nextInt(6) + 1;
+        die2 = rand.nextInt(6) + 1;
+        die3 = rand.nextInt(6) + 1;
+
+        //Set the dice values into an arraylist
+        dice.clear();
+        dice.add(die1);
+        dice.add(die2);
+        dice.add(die3);
+
+        //Build string for what the user rolled
+        String msg = "You rolled a " + die1 + ", a " + die2 +", a " + die3;
 
         //Update the app to display the roll message
         rollResult.setText(msg);
