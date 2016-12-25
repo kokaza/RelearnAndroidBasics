@@ -8,9 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    //Fields to hold the roll and result text
+    TextView rollResult;
+
+    //Field to hold the roll button
+    Button rollButton;
 
     //Field to hold the score
     int score;
@@ -32,7 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
         //Set initial score to 0
         score = 0;
-        Toast.makeText(this, "The score is "+ score, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "The score is "+ score, Toast.LENGTH_SHORT).show();
+
+        //link the java to the XML
+        rollResult = (TextView) findViewById(R.id.rollResult);
+        rollButton = (Button) findViewById(R.id.rollButton);
+
     }
 
     @Override
