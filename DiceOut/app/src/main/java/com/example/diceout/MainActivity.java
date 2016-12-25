@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     //Fields to hold the roll and result text
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     //Field to hold the score
     int score;
+
+    //Need to create an instance of the Random class for generating the numbers use ALT+ENTER shortcut to import
+    Random rand;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +52,18 @@ public class MainActivity extends AppCompatActivity {
         rollResult = (TextView) findViewById(R.id.rollResult);
         rollButton = (Button) findViewById(R.id.rollButton);
 
+        //initialize the random number generator
+        rand = new Random();
+
     }
 
     public void rollDice(View v){
+
         rollResult.setText("Clicked!");
+
+        int num = rand.nextInt(6) + 1;
+        String randomValue = "Number generated: " + num;
+        Toast.makeText(getApplicationContext(), randomValue,Toast.LENGTH_SHORT).show();
     }
 
     @Override
