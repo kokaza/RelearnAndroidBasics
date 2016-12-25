@@ -23,7 +23,9 @@
         android:text="Roll!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/rollResult"
         android:id="@+id/rollButton"
         android:layout_centerHorizontal="true"
+        android:onClick="rollDice"
         android:layout_marginTop="25dp"/>
 </RelativeLayout>
