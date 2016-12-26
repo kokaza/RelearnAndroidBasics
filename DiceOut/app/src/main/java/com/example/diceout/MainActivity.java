@@ -123,10 +123,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Build string for what the user rolled
-        String msg = "You rolled a " + die1 + ", a " + die2 +", a " + die3;
+        String msg;
 
+        //logic for determining score
+        if(die1 == die2 && die1 == die3){
+            //A triple was rolled and score is made
+            int scoreDelta = 100 * die1;
+            msg = "You rolled a triple " + die1 + "! You score: " + scoreDelta;
+            score += scoreDelta;
+        }else if (die1 == die2 || die1 == die3 || die2 == die3){
+            //Scored a double
+            msg = "You rolled a double for 50 points!";
+            score += 50;
+        }else{
+            msg = "Awh you got no points. Try again!";
+        }
         //Update the app to display the roll message
         rollResult.setText(msg);
+        scoreText.setText("Score: " + score);
     }
 
     @Override
