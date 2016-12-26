@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
         diceImageViews.add(die1Image);
         diceImageViews.add(die2Image);
         diceImageViews.add(die3Image);
+
+        //For static images you can use drawables, but for dynamic changeing ones you should use assets.
+        //It is common to run out of memory if using drawables, so we will use drawables here
+        //Need to manually create an assets folder
     }
 
     public void rollDice(View v){
