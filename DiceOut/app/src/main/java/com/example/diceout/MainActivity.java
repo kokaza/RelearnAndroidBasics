@@ -1,5 +1,6 @@
 package com.example.diceout;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     //ArrayList to hold all the dice values
     ArrayList<Integer> dice;
+
+    //Arraylist to hold all 3 dice images
+    ArrayList<ImageView> diceImageViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
         //Create ArrayList Container for the Dice values
         dice = new ArrayList<Integer>();
 
+        ImageView die1Image = (ImageView)findViewById(R.id.die1Image);
+        ImageView die2Image = (ImageView)findViewById(R.id.die2Image);
+        ImageView die3Image = (ImageView)findViewById(R.id.die3Image);
+
+        diceImageViews = new ArrayList<ImageView>();
+        diceImageViews.add(die1Image);
+        diceImageViews.add(die2Image);
+        diceImageViews.add(die3Image);
     }
 
     public void rollDice(View v){
